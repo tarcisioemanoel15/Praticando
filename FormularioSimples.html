@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+
+<style>
+    body{
+        background: slategray;
+    }
+    .section{
+        background: cornflowerblue;
+        text-align: center;
+    }
+
+</style>
+<body>
+    <section class="section">
+        <h1> Prencha o Formulario</h1>
+        <form id="form" action="" method="get">
+            <label for="">Nome</label>
+            <input type="text" id="nome">
+            <label for="">Idade</label>
+            <input type="text" id="idade">
+            <label for="">Peso</label>
+            <input type="text" id="peso">
+            <label for="">Altura</label>
+            <input type="text" id="altura">
+            <button> Enviar </button>
+        </form>
+        
+        <div id="res">..........</div>
+    </section>
+
+
+
+    <section id="cantainer">
+
+        
+        
+        
+        
+        
+    </section>
+
+    
+    <script>
+    
+function formulario(){
+    const form = document.getElementById('form');
+    const pesoa = [];
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const nome0 = document.getElementById('nome').value;
+    const idade0 = document.getElementById('idade').value;
+    const peso0 = document.getElementById('peso').value;
+    const altura0 = document.getElementById('altura').value;
+    pesoa.push({
+        nome0 : nome0.value,
+    idade0 : idade0.value,
+    peso0 : peso0.value,
+    altura0 : altura0.value
+    });
+    const res = document.getElementById('res');
+    res.innerHTML+= (`<p>Seu nome: ${nome0} Idade:${idade0} Seu peso:${peso0} Sua altura:${altura0}</p>`);
+});
+}
+formulario();
+
+
+</script>
+</body>
+</html>

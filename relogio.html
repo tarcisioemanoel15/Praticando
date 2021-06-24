@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relogio</title>
+
+    <style>
+body{
+    background: darkslategray;
+}
+h1{
+    text-align: center;
+    font-size: 50px;
+}
+
+#relogioo{
+    text-align: center;
+    background: black;
+    color: red;
+    border-radius: 30%;
+}
+#re{
+    text-align: center;
+    
+}
+#relogiooo{
+    display: inline-flex;
+    justify-content: center;
+    font-size: 100px;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    background: cyan;
+}
+
+    </style>
+
+</head>
+
+<body>
+    <h1> Horas </h1>
+
+<div>
+    <input type="text" id="relogioo">
+</div>
+
+<div class="cen">
+    <div id="re">
+        <p id="relogiooo">00:00:00</p>
+    </div>
+</div>
+    
+<script>
+    function hora(){
+const relogiooo = document.getElementById('relogiooo');
+function zero(num){
+return num >= 10 ? num : '0'+num;
+}
+const data = new Date();
+
+const hor = zero(data.getHours());
+const min = zero(data.getMinutes());
+const seg = zero(data.getSeconds());
+const horas = `${hor}:${min}:${seg}`;
+
+
+document.getElementById('relogioo').value = horas;
+relogiooo.innerHTML= horas;
+
+}
+
+setInterval(hora, 1000)
+</script>
+
+</body>
+</html>

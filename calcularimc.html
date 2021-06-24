@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcule seu imc</title>
+</head>
+<style>
+    body{
+        background: darkslategray;
+        text-align: center;
+    }
+.cor0{background: forestgreen;}
+.cor1{background: deeppink;}
+</style>
+
+
+<body>
+<form id="form" action="" method="get">
+    <h1> calcule se IMC </h1>
+    <label for="">peso</label>
+    <input type="text" id="peso">
+    <label for="">altura</label>
+    <input type="text" id="altura">
+    <button>calcular</button>
+</form>
+<div id="res"></div>
+
+
+
+
+<script>
+
+function ImC(){
+const form = document.getElementById('form');
+
+form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const peso1 = document.getElementById('peso');
+    const altura1 = document.getElementById('altura');
+    const peso = Number(peso1.value);
+    const altura = Number(altura1.value);
+
+    if(peso == '' || altura == ''){
+        if(!peso){ resultado("peso invalido", false)}
+        if(!altura){ resultado("Aaltura invalido", false)}
+    } 
+    else{
+    
+        const imc = calculaimc(peso, altura);
+        const msg = mensag(imc);      
+        const C = (`${imc} ||| ${msg}`)
+        //res.innerHTML+= (`<p>${imc}</p>`)
+        
+        resultado(C, true)
+    }   
+});
+        
+function criap(){
+    const p = document.createElement('p');
+    return p;
+}
+function calculaimc(peso, altura){
+    const res = peso/(altura*altura);
+return res.toFixed(2);
+}
+function mensag(imc){
+const ks = ['abaixo do peso', 'normal', 'acima do peso', 'gordo', 'obesidade'];
+if (imc < 20){ return ks[0];}
+if (imc >=20 && imc < 25){ return ks[1];}
+if (imc >= 25 && imc <35){ return ks[2];}
+if (imc >= 35 && imc <40){ return ks[3];}
+if (imc >= 40 && imc <50){ return ks[4];}
+}
+
+function resultado(imc, isvalid){
+    const res = document.getElementById('res');
+    res.innerHTML += '';
+
+    const p = criap();
+    p.innerHTML = imc;
+
+    if(isvalid){
+        p.classList.add('cor0');
+    }else{
+        p.classList.add('cor1');
+    }
+    res.appendChild(p);
+}
+}
+ImC();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Arquivos</title>
+    <style>
+        body{
+            text-align: center;
+            background: black;
+            color: blanchedalmond;
+        }
+        ul{
+            list-style: none;
+        }
+        .APAGAR{
+            background: red;
+        }
+        @media screen and (max-width:410px) {
+           h1{
+               font-size: 20px;
+           }
+        }
+    </style>
+        </head>
+        <body>
+            <h1> Bloco de anotaçoes</h1>
+            <p>
+                <input type="text" class="visor">
+                <button class="btn">add</button>
+            </p>
+            <ul class="lista"></ul>
+           
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<script>
+    const visor = document.querySelector('.visor');
+    const btn = document.querySelector('.btn');
+    const lista = document.querySelector('.lista');
+btn.addEventListener('click', function(){
+    if(!visor)return;
+    texto1(visor.value);
+});
+visor.addEventListener('keypress', function(e){
+    if(e.keyCode === 13){
+        if(!visor) return;
+        texto1(visor.value);
+    }
+});
+document.addEventListener('click', function(e){
+    const el = e.target;
+    if(el.classList.contains('APAGAR')){
+        el.parentElement.remove();
+    }
+});
+
+function addlista(){
+
+    const adicionado =  localStorage.getItem("Tarcisio");
+    const ttt = JSON.parse(adicionado);
+    for(let lista10 of ttt){
+        texto1(lista10);
+    }
+}
+addlista();
+
+
+function salvar(){
+    const listatarefa = lista.querySelectorAll('li');
+    const listao = [];
+for(let listas of listatarefa){
+    let listas1 = listas.innerText;
+    listao.push(listas1);
+}
+const salvaJSON = JSON.stringify(listao);
+localStorage.setItem('Tarcisio', salvaJSON);
+    
+
+}
+function focando(){
+    visor.value= '';
+    visor.focus();
+}
+function criabtn(li){
+    li.innerText += ' ';
+    const criabtnapagar = document.createElement('button');
+    criabtnapagar.setAttribute('class', 'APAGAR');
+    li.appendChild(criabtnapagar);
+}                
+function criali(){
+    const li = document.createElement('li');
+    return li;
+}    
+function texto1(tx){
+const li = criali();
+li.innerText= tx;
+lista.appendChild(li)
+criabtn(li)
+focando()
+salvar()
+}
+ </script>
+</body>
+</html>

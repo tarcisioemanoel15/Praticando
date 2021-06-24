@@ -1,0 +1,72 @@
+@keyframes fadee {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/*/Fazer os campos se moverem da esquerda para direita/*/
+
+form{
+    overflow: hidden;
+    animation: fadee 0.5s;
+}
+
+form .input-block:nth-child(1){
+    animation: movee 500ms;
+}
+
+form .input-block:nth-child(2){
+    animation: movee 400ms;
+    animation-delay: 100ms;
+    animation-fill-mode: backwards;
+}
+
+form .btn-login{
+    animation: movee 400ms;
+    animation-delay: 250ms;
+    animation-fill-mode: backwards;
+
+}
+
+@keyframes movee {
+    from {
+        opacity: 0;
+        transform: translateX(-35%);
+    }to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+/*/////////////////////////////////////////*/
+/*/////////////////////////////////////////*/
+/*O de cima ja foi feito na pasta o1 e 02//*/
+/*/////////////////////////////////////////*/
+/*/////////////////////////////////////////*/
+
+/*Quando clicar no botão logim formulario ir para baixo*/
+
+.form-hide{
+animation: down 500ms forwards; /*para manter o estado final forwards*/
+}
+
+@keyframes down {
+    from {
+        transform: translateY(0);
+    }to {
+        transform: translateY(100vh);
+
+    }
+}
+/*Finalizado no javaScript
+const btn = document.querySelector('.btn-login');
+const form = document.querySelector('form');
+btn.addEventListener('click', event =>{
+    event.preventDefault();
+    form.classList.add('form-hide');
+});
+*/

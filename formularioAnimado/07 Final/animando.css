@@ -1,0 +1,122 @@
+@keyframes fadee {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/*/Fazer os campos se moverem da esquerda para direita/*/
+
+form{
+    overflow: hidden;
+    animation: fadee 0.5s;
+}
+
+form .input-block:nth-child(1){
+    animation: movee 500ms;
+}
+
+form .input-block:nth-child(2){
+    animation: movee 400ms;
+    animation-delay: 100ms;
+    animation-fill-mode: backwards;
+}
+
+form .btn-login{
+    animation: movee 400ms;
+    animation-delay: 250ms;
+    animation-fill-mode: backwards;
+
+}
+
+@keyframes movee {
+    from {
+        opacity: 0;
+        transform: translateX(-35%);
+    }to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+/*Quando clicar no botão logim formulario ir para baixo*/
+
+.form-hide{
+animation: down 1.2s forwards; /*para manter o estado final forwards*/
+animation-timing-function: cubic-bezier();
+animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);  /*nesta tarefa este foi o que eu adicionei*/
+}
+
+@keyframes down {
+    from {
+        transform: translateY(0);
+    }to {
+        transform: translateY(100vh);
+
+    }
+}
+
+
+
+/*Remover do formulario o HTML e sumir com a barra de rolagem*/
+/*este resolve tudo no javaScript*/
+
+
+
+
+/*Adicionar um efeito diferente de taimer para a 
+saida do formulario*/
+/*
+/// animation-timing-function: ease-in ////
+///sair de vagar e sair rapido ease-in////
+chegar rapido e chegarde vagar easse-out/
+///e muito mais////
+*/
+
+
+/* fentro do form-hide so fiz uma chamada a mais EX: abaixo 
+.form-hide{
+
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    
+}
+*/
+
+
+
+
+/*form Nou Nou*/
+form.validate-error {
+    animation: nono 200ms linear, fadee paused;
+    animation-iteration-count: 2;
+}
+
+@keyframes nono {
+0%{
+    transform: translateX(0);
+}
+35%{
+    transform: translateX(-15%);
+}
+70%{
+    transform: translateX(15);
+}
+100%{
+    transform: translateX(0);
+}
+}
+
+
+
+/*/////////////////////////////////////////*/
+/*/////////////////////////////////////////*/
+  /*O de cima ja foi feito na pasta //*/
+/*/////////////////////////////////////////*/
+/*/////////////////////////////////////////*/
+
+/* final cubos subindo de baixo pra cima*/
+
+/*no outo css*/

@@ -1,0 +1,12 @@
+body{
+    font-size: 50px;
+    text-align: center;
+    background: black;
+    color:wheat;
+    padding: 8%;
+}
+
+.cor{
+    background: tomato;
+    color: black;
+}

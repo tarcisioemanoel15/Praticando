@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+
+    <style>
+        body{
+            text-align: center;
+            background: rgb(102, 36, 102);
+        }
+        .cor0{
+            color: tomato;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="container">
+        <h1>Meu Taimer</h1>
+        <p class="taimer">00:00:00</p>
+        <div>
+            <button class="iniciar">iniciar</button>
+            <button class="pausar">pausar</button>
+            <button class="zerar">zerar</button>
+        </div>
+    </section>
+    
+
+<script>
+
+const meutimer = document.querySelector('.taimer');
+
+document.addEventListener('click', function(e){
+       const el = e.target;
+    
+    if(el.classList.contains('iniciar')){   
+        meutimer.classList.remove('cor0')
+    clearInterval(timer);
+    cont(segundos);
+}
+if(el.classList.contains('pausar')){
+    meutimer.classList.add('cor0')
+    clearInterval(timer);
+}
+if(el.classList.contains('zerar')){
+    meutimer.classList.remove('cor0')
+    clearInterval(timer);
+    seg = 0;
+    meutimer.innerHTML= '00:00:00'
+}
+    
+});
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx    
+    //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+function segundos(seg){
+    let data = new Date(seg * 1000);
+    return data.toLocaleTimeString('pt-BR',{
+        hour12: false,
+        timeZone: 'UTC'
+    });
+}
+console.log(segundos(10))
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+let seg = 0;
+let timer;
+function cont(){
+timer = setInterval(function(){
+
+    seg++
+    meutimer.innerHTML= (segundos(seg));
+
+},1000); 
+}
+
+</script>
+</body>
+</html>

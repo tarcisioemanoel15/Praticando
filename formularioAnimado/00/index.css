@@ -1,0 +1,71 @@
+/*
+*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body{height: 100vh;}
+
+body{
+background-color: rgb(247, 0, 255);
+font-family: Roboto, Arial, sans-serif;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size: 35px;
+    letter-spacing: 1px;
+    margin: 20px 0;
+    color: rgba(246, 247, 248, 0.616);
+}
+
+form{
+    margin: 20px 0;
+    background-color: floralwhite;
+    padding: 30px 25px;
+    border-radius: 20px;
+}
+
+form .input-block{
+    margin-bottom: 20px;
+}
+
+form .input-block label{
+    font-size: 14px;
+    color: darkslategray;
+}
+
+form .input-block input {
+    width: 100%;
+    display: block;
+    margin-top: 8px;
+    padding: 7px;
+    font-size: 16px;
+    color: rgb(196, 35, 35);
+    background-color: gray;
+    border-radius: 30px;
+    margin: auto;
+    padding: 7px;
+    border: none;
+}
+
+form .btn-login{
+    display: block;
+    min-width: 120px;
+    background: slategray;
+    border-radius: 30px;
+    border: none;
+    color: red;
+    margin: auto;
+    padding: 7px;
+}
+
+
